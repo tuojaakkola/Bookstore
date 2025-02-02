@@ -14,6 +14,8 @@ import fi.haagahelia.bookstore.domain.BookRepository;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Controller
@@ -45,4 +47,18 @@ public class BookController {
         repository.deleteById(bookId);
         return "redirect:/booklist";
     }
+
+    @GetMapping("/books/edit/{id}")
+    public String showEditBookForm(@PathVariable("id") Long bookId, Model model) {
+    Book book = repository.findById(bookId).orElseThrow(() -> new IllegalArgumentException("Invalid book ID"));
+    model.addAttribute("book", book);
+    return "editbook"; 
+}
+
+    @PostMapping("/books/update")
+    public String postMethodName(@ModelAttribute Book book) {
+        repository.save(book);
+        return "redirect:/booklist";
+    }
+
 }
