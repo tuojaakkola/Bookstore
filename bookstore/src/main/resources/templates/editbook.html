@@ -1,38 +1,40 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Edit book</title>
-    <meta http-equiv="Content-Type" charset="UTF-8" content="text/html">
+    <title>Edit Book</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
     <h1>Edit Book</h1>
-    <form action="/books/update" method="post">
-        
-        <input type="hidden" name="id" th:value="${book.id}">
-        
-        <div>
-            <label for="title">Title:</label>
-            <input type="text" id="title" th:value="${book.title}" required>
-        </div>
-        <div>
-            <label for="author">Author:</label>
-            <input type="text" id="author" th:value="${book.author}" required>
-        </div>
-        <div>
-            <label for="publicationYear">Year:</label>
-            <input type="text" id="publicationYear"  th:value="${book.publicationYear}" required>
-        </div>
-        <div>
-            <label for="isbn">ISBN:</label>
-            <input type="text" id="isbn" th:value="${book.isbn}" required>
-        </div>
-        <div>
-            <button type="submit">Save Changes</button>
-        </div>
-    </form>
-    
+    <div>
+        <form th:object="${book}" th:action="@{../update}" action="#" method="post">
+            <input type="hidden" id="id" th:field="*{id}" />
+
+            <label for="title">Title</label>
+            <input type="text" id="title" th:field="*{title}" required />
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label for="author">Author</label>
+            <input type="text" id="author" th:field="*{author}" required />
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label for="publicationYear">Year</label>
+            <input type="text" id="publicationYear" th:field="*{publicationYear}" required />
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label for="isbn">ISBN</label>
+            <input type="text" id="isbn" th:field="*{isbn}" required />
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label for="categorylist">Category</label>
+            <select id="categorylist" th:field="*{category}" class="form-control">
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <input type="submit" value="Save Changes" />
+        </form>
+    </div>
     <a href="/booklist">Back to Book List</a>
 </body>
 </html>
-
-

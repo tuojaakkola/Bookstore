@@ -11,18 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fi.haagahelia.bookstore.domain.Book;
 import fi.haagahelia.bookstore.domain.BookRepository;
+import fi.haagahelia.bookstore.domain.CategoryRepository;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestBody;
-
-
 
 @Controller
 public class BookController {
 
     @Autowired
     private BookRepository repository;
+    @Autowired
+    private CategoryRepository crepository;
 
     @GetMapping("/booklist")
     public String bookList(Model model) {
@@ -32,31 +31,33 @@ public class BookController {
 
     @GetMapping("/books/add")
     public String showAddBookForm(Model model) {
-        model.addAttribute("book", new Book()); 
+        model.addAttribute("book", new Book());
+        model.addAttribute("categories", crepository.findAll());
         return "addbook";
     }
-    
+
     @PostMapping("/books/save")
     public String saveBook(@ModelAttribute Book book) {
-        repository.save(book); 
-        return "redirect:/booklist"; 
+        repository.save(book);
+        return "redirect:/booklist";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteBook(@PathVariable("id") Long bookId){ 
+    public String deleteBook(@PathVariable("id") Long bookId) {
         repository.deleteById(bookId);
         return "redirect:/booklist";
     }
 
     @GetMapping("/books/edit/{id}")
     public String showEditBookForm(@PathVariable("id") Long bookId, Model model) {
-    Book book = repository.findById(bookId).orElseThrow(() -> new IllegalArgumentException("Invalid book ID"));
-    model.addAttribute("book", book);
-    return "editbook"; 
-}
+        Book book = repository.findById(bookId).orElseThrow(() -> new IllegalArgumentException("Invalid book ID"));
+        model.addAttribute("book", book);
+        model.addAttribute("categories", crepository.findAll());
+        return "editbook";
+    }
 
     @PostMapping("/books/update")
-    public String postMethodName(@ModelAttribute Book book) {
+    public String updateBook(@ModelAttribute Book book) {
         repository.save(book);
         return "redirect:/booklist";
     }
