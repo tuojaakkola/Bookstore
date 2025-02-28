@@ -25,7 +25,7 @@ public class BookController {
         return "booklist";
     }
 
-    @GetMapping("/books/add")
+    @GetMapping("/books/add")   
     public String showAddBookForm(Model model) {
         model.addAttribute("book", new Book());
         model.addAttribute("categories", crepository.findAll());
