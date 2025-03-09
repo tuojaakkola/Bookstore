@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 import fi.haagahelia.bookstore.domain.BookRepository;
-import fi.haagahelia.bookstore.domain.CategoryRepository;
 import fi.haagahelia.bookstore.domain.Book;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -17,8 +16,7 @@ public class BookstoreRestController {
 
     @Autowired
     private BookRepository repository;
-    @Autowired
-    private CategoryRepository crepository;
+   
 
     // RESTful service to get all books
     @GetMapping("/books")

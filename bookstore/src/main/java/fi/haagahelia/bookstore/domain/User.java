@@ -6,11 +6,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
 
-
 @Entity(name = "users")
 public class User {
-    @Id 
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
@@ -20,7 +19,7 @@ public class User {
     @Column(name = "password", nullable = false)
     private String passwordHash;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = true)
     private String email;
 
     @Column(name = "role", nullable = false)
@@ -29,7 +28,7 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String role) {
+    public User(String username, String passwordHash, String role) {
         this.username = username;
         this.passwordHash = passwordHash;
         this.role = role;
@@ -59,7 +58,6 @@ public class User {
         this.username = username;
     }
 
-
     public String getRole() {
         return role;
     }
@@ -75,6 +73,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
 }

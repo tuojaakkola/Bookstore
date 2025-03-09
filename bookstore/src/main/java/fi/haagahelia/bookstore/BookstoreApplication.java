@@ -13,7 +13,6 @@ import fi.haagahelia.bookstore.domain.User;
 import fi.haagahelia.bookstore.domain.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
 @SpringBootApplication
 public class BookstoreApplication {
 
@@ -22,18 +21,20 @@ public class BookstoreApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(BookRepository repository, CategoryRepository cRepository, UserRepository userRepository, PasswordEncoder passwordEncoder){return (args) -> {
+	public CommandLineRunner demo(BookRepository repository, CategoryRepository cRepository,
+			UserRepository userRepository, PasswordEncoder passwordEncoder) {
+		return (args) -> {
 
-			//Categories
+			// Categories
 			Category category1 = new Category("Coding");
 			Category category2 = new Category("Design");
 			Category category3 = new Category("Animals");
-			
+
 			cRepository.save(category1);
 			cRepository.save(category2);
-			cRepository.save(category3);	
+			cRepository.save(category3);
 
-			//Books
+			// Books
 			Book book1 = new Book("Java Programming", "John Doe", "1234567890", 2020, 29.99, category1);
 			Book book2 = new Book("Spring Basics", "Jane Smith", "0987654321", 2019, 24.99, category1);
 			Book book3 = new Book("Clean Code", "Robert Martin", "1122334455", 2008, 39.99, category1);
@@ -46,20 +47,20 @@ public class BookstoreApplication {
 			repository.save(book4);
 			repository.save(book5);
 
-			//Users	
+			// Users
 			User user = new User();
-            user.setUsername("user");
-            user.setPasswordHash(passwordEncoder.encode("password"));
+			user.setUsername("user");
+			user.setPasswordHash(passwordEncoder.encode("password"));
 			user.setEmail("user@example.com");
-            user.setRole("USER");
-            userRepository.save(user);
+			user.setRole("USER");
+			userRepository.save(user);
 
-            User admin = new User();
-            admin.setUsername("admin");
-            admin.setPasswordHash(passwordEncoder.encode("adminpassword"));
+			User admin = new User();
+			admin.setUsername("admin");
+			admin.setPasswordHash(passwordEncoder.encode("adminpassword"));
 			admin.setEmail("admin@example.com");
-            admin.setRole("ADMIN");
-            userRepository.save(admin);
-	};
+			admin.setRole("ADMIN");
+			userRepository.save(admin);
+		};
 	}
 }

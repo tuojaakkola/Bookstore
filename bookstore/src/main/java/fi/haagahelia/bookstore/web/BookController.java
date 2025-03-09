@@ -11,8 +11,6 @@ import fi.haagahelia.bookstore.domain.Book;
 import fi.haagahelia.bookstore.domain.BookRepository;
 import fi.haagahelia.bookstore.domain.CategoryRepository;
 
-
-
 @Controller
 public class BookController {
 
@@ -29,7 +27,7 @@ public class BookController {
     }
 
     // Show form to add a new book
-    @GetMapping("/books/add")   
+    @GetMapping("/books/add")
     public String showAddBookForm(Model model) {
         model.addAttribute("book", new Book());
         model.addAttribute("categories", crepository.findAll());
@@ -59,16 +57,16 @@ public class BookController {
         return "editbook";
     }
 
-    // 
+    //
     @PostMapping("/books/update")
     public String updateBook(@ModelAttribute Book book) {
         repository.save(book);
         return "redirect:/booklist";
     }
 
-    //Login page
+    // Login page
     @GetMapping("/login")
     public String login() {
         return "login";
-    }    
+    }
 }

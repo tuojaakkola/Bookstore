@@ -15,21 +15,22 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Category {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     public String name;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "category")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private List<Book> books = new ArrayList<>();
 
-    public Category() {}
-	
-	public Category(String name) {
-		super();
-		this.name = name;
-	}
+    public Category() {
+    }
+
+    public Category(String name) {
+        super();
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
