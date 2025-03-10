@@ -2,12 +2,9 @@ package fi.haagahelia.bookstore;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 import fi.haagahelia.bookstore.domain.Category;
 import fi.haagahelia.bookstore.domain.CategoryRepository;
 
@@ -16,9 +13,6 @@ public class CategoryRepositoryTests {
 
     @Autowired
     private CategoryRepository categoryRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Test
     public void createNewCategory() {
