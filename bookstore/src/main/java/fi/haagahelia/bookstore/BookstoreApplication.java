@@ -11,6 +11,8 @@ import fi.haagahelia.bookstore.domain.Category;
 import fi.haagahelia.bookstore.domain.CategoryRepository;
 import fi.haagahelia.bookstore.domain.User;
 import fi.haagahelia.bookstore.domain.UserRepository;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
@@ -18,6 +20,11 @@ public class BookstoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
+	}
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 
 	@Bean
