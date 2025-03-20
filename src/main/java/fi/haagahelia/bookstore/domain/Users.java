@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
 
 @Entity(name = "users")
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
@@ -25,10 +25,10 @@ public class User {
     @Column(name = "role", nullable = false)
     private String role;
 
-    public User() {
+    public Users() {
     }
 
-    public User(String username, String passwordHash, String role) {
+    public Users(String username, String passwordHash, String role) {
         this.username = username;
         this.passwordHash = passwordHash;
         this.role = role;

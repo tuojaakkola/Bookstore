@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BookstoreApplication",
+            "request": "launch",
+            "mainClass": "fi.haagahelia.bookstore.BookstoreApplication"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-BookstoreApplication<bookstore>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

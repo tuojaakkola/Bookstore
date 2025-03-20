@@ -9,8 +9,9 @@ import fi.haagahelia.bookstore.domain.Book;
 import fi.haagahelia.bookstore.domain.BookRepository;
 import fi.haagahelia.bookstore.domain.Category;
 import fi.haagahelia.bookstore.domain.CategoryRepository;
-import fi.haagahelia.bookstore.domain.User;
+import fi.haagahelia.bookstore.domain.Users;
 import fi.haagahelia.bookstore.domain.UserRepository;
+
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -55,14 +56,14 @@ public class BookstoreApplication {
 			repository.save(book5);
 
 			// Users
-			User user = new User();
+			Users user = new Users();
 			user.setUsername("user");
 			user.setPasswordHash(passwordEncoder.encode("password"));
 			user.setEmail("user@example.com");
 			user.setRole("USER");
 			userRepository.save(user);
 
-			User admin = new User();
+			Users admin = new Users();
 			admin.setUsername("admin");
 			admin.setPasswordHash(passwordEncoder.encode("adminpassword"));
 			admin.setEmail("admin@example.com");
