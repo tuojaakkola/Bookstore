@@ -58,19 +58,19 @@ public class BookstoreApplication {
 			// repository.save(book4);
 			// repository.save(book5);
 
-			Users user = new Users();
-			user.setUsername("user");
-			user.setPasswordHash(passwordEncoder.encode("password"));
-			user.setEmail("user@example.com");
-			user.setRole("USER");
-			userRepository.save(user);
+			// Users user = new Users();
+			// user.setUsername("user");
+			// user.setPasswordHash(passwordEncoder.encode("password"));
+			// user.setEmail("user@example.com");
+			// user.setRole("USER");
+			// userRepository.save(user);
 
-			Users admin = new Users();
-			admin.setUsername("admin");
-			admin.setPasswordHash(passwordEncoder.encode("adminpassword"));
-			admin.setEmail("admin@example.com");
-			admin.setRole("ADMIN");
-			userRepository.save(admin);
+			// Users admin = new Users();
+			// admin.setUsername("admin");
+			// admin.setPasswordHash(passwordEncoder.encode("adminpassword"));
+			// admin.setEmail("admin@example.com");
+			// admin.setRole("ADMIN");
+			// userRepository.save(admin);
 
 			// Comment
 		};
