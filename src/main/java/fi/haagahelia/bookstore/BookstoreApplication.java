@@ -33,13 +33,13 @@ public class BookstoreApplication {
 		return (args) -> {
 
 			
-			Category category1 = new Category("Coding");
-			Category category2 = new Category("Design");
-			Category category3 = new Category("Animals");
+			// Category category1 = new Category("Coding");
+			// Category category2 = new Category("Design");
+			// Category category3 = new Category("Animals");
 
-			cRepository.save(category1);
-			cRepository.save(category2);
-			cRepository.save(category3);
+			// cRepository.save(category1);
+			// cRepository.save(category2);
+			// cRepository.save(category3);
 
 			// Book book1 = new Book("Java Programming", "John Doe", "1234567890", 2020,
 			// 29.99, category1);
