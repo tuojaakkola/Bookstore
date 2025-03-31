@@ -31,13 +31,13 @@ public class BookstoreApplication {
 			UserRepository userRepository, PasswordEncoder passwordEncoder) {
 		return (args) -> {
 
-			Category category1 = new Category("Coding");
-			Category category2 = new Category("Design");
-			Category category3 = new Category("Animals");
+			// Category category1 = new Category("Coding");
+			// Category category2 = new Category("Design");
+			// Category category3 = new Category("Animals");
 
-			cRepository.save(category1);
-			cRepository.save(category2);
-			cRepository.save(category3);
+			// cRepository.save(category1);
+			// cRepository.save(category2);
+			// cRepository.save(category3);
 
 			// Book book1 = new Book("Java Programming", "John Doe", "1234567890", 2020,
 			// 29.99, category1);
@@ -56,19 +56,19 @@ public class BookstoreApplication {
 			// repository.save(book4);
 			// repository.save(book5);
 
-			Users user = new Users();
-			user.setUsername("user");
-			user.setPasswordHash(passwordEncoder.encode("password"));
-			user.setEmail("user@example.com");
-			user.setRole("USER");
-			userRepository.save(user);
+			// Users user = new Users();
+			// user.setUsername("user");
+			// user.setPasswordHash(passwordEncoder.encode("password"));
+			// user.setEmail("user@example.com");
+			// user.setRole("USER");
+			// userRepository.save(user);
 
-			Users admin = new Users();
-			admin.setUsername("admin");
-			admin.setPasswordHash(passwordEncoder.encode("adminpassword"));
-			admin.setEmail("admin@example.com");
-			admin.setRole("ADMIN");
-			userRepository.save(admin);
+			// Users admin = new Users();
+			// admin.setUsername("admin");
+			// admin.setPasswordHash(passwordEncoder.encode("adminpassword"));
+			// admin.setEmail("admin@example.com");
+			// admin.setRole("ADMIN");
+			// userRepository.save(admin);
 
 			// Comment
 		};
